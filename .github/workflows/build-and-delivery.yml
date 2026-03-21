@@ -1,18 +1,15 @@
 name: Build and Delivery
-
 on:
   workflow_run:
     workflows: ['Test Python App']
-    types: [completed]
-    branches: [master]
+    types: ['completed']
+    branches: ['master']
 
 jobs:
   cd:
     runs-on: ubuntu-latest
     if: ${{ github.event.workflow_run.conclusion == 'success' }}
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
       - name: Login Docker Hub
         uses: docker/login-action@v3
         with:
