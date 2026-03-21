@@ -1,4 +1,5 @@
 name: Build and Delivery
+
 on:
   workflow_run:
     workflows: [Test Python App]
@@ -10,16 +11,16 @@ jobs:
     runs-on: ubuntu-latest
     if: ${{ github.event.workflow_run.conclusion == 'success' }}
     steps:
-        - name: Checkout repository
+      - name: Checkout repository
         uses: actions/checkout@v4
- 
-        - name: Login Docker Hub
+
+      - name: Login Docker Hub
         uses: docker/login-action@v3
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
-        - name: Build and Push
+      - name: Build and Push
         uses: docker/build-push-action@v6
         with:
           context: .
