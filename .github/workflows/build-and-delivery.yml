@@ -2,7 +2,7 @@ name: Build and Delivery
 
 on:
   workflow_run:
-    workflows: ["Test Python App"]
+    workflows: ['Test Python App']
     types: [completed]
     branches: [master]
 
@@ -22,14 +22,5 @@ jobs:
       - name: Build and Push
         uses: docker/build-push-action@v6
         with:
-          context: .
           push: true
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/my-app:latest
-          labels: |
-            org.opencontainers.image.source=${{ github.server_url }}/${{ github.repository }}
-            org.opencontainers.image.created=${{ steps.date.outputs.value }}
-      - name: Build Docker Image
-        run: docker build -t ${{ secrets.DOCKERHUB_USERNAME }}/my-app:latest .
-
-      - name: Push Docker Image
-        run: docker push ${{ secrets.DOCKERHUB_USERNAME }}/my-app:latest
