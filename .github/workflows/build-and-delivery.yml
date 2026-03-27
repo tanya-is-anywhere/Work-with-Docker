@@ -31,7 +31,7 @@ jobs:
           push: true
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/my-app:latest
           build-args:  # Дополнительные аргументы сборки (при необходимости)
-            BUILD_DATE: ${{ github.run_started_at }}
+          BUILD_DATE: ${{ github.run_started_at }}
 
       - name: Print build details (debug)
         run: |
