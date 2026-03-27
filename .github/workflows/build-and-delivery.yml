@@ -30,10 +30,3 @@ jobs:
           file: ./Dockerfile  # Явно указан Dockerfile (если он есть)
           push: true
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/my-app:latest
-          build-args:  # Дополнительные аргументы сборки (при необходимости)
-          BUILD_DATE: ${{ github.run_started_at }}
-
-      - name: Print build details (debug)
-        run: |
-          echo "Docker image pushed with tag: ${{ steps.docker_build.outputs.digest }}"
-          echo "Build completed at: ${{ github.run_started_at }}"
