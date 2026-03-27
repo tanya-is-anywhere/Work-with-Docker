@@ -30,4 +30,5 @@ jobs:
           context: .
           push: true
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/my-app:latest
+      - name: B
         run: docker build . --file Dockerfile --tag my-image-name:$(date +%s)
