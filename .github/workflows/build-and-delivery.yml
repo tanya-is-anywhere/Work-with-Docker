@@ -1,7 +1,7 @@
 name: Build and Delivery
 on:
   workflow_run:
-    workflows: ['Test Python App']  # Использованы одинарные кавычки для согласованности
+    workflows: ['Test Python App']
     types: ['completed']
     branches: ['master']
 
