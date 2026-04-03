@@ -1,7 +1,7 @@
 name: Build And Delivery
 on:
   workflow_run:
-    workflows: ['Test']
+    workflows: ['Build']
     types: ['completed']
     branches: ['master']
 jobs:
