@@ -1,5 +1,4 @@
 name: Build And Delivery
-
 on:
   workflow_run:
     workflows: ['Test Python App']
