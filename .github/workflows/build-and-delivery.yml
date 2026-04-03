@@ -1,6 +1,6 @@
 name: Build And Delivery
 on:
-  workflow_runs:
+  workflows_run:
     workflows: ['Test Python App']
     types: ['completed']
     branches: ['master']
