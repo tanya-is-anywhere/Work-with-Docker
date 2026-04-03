@@ -3,7 +3,6 @@ on:
   workflow_run:
     workflows: ['Test Python App']
     types: ['completed']
-    branches: ['master']
 
 jobs:
   cd:
